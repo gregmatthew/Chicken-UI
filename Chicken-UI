@@ -1,0 +1,79 @@
+# app.py
+# Chicken-UI CLI App to manage chicken records
+
+import os
+
+# Function to clear the screen
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+# Initial list of chickens
+chickens = ["George", "Fleur", "Devon", "Casey", "Marigold", "Apple Mint"]
+
+# Print main menu
+def print_menu():
+    print("\n=== Chicken-UI Menu ===")
+    print("0 - Exit App")
+    print("1 - Print List of Chicken Records")
+    print("2 - Create New Chicken Record")
+    print("3 - Update Existing Chicken Record")
+    print("4 - Delete a Chicken Record")
+
+# Print all chickens
+def list_chickens():
+    print("\n--- Chicken Records ---")
+    for index, chicken in enumerate(chickens):
+        print(f"{index}: {chicken}")
+
+# Add a new chicken
+def add_chicken():
+    name = input("Enter new chicken name: ")
+    chickens.append(name)
+    print(f"{name} added.")
+
+# Update a chicken name
+def update_chicken():
+    list_chickens()
+    try:
+        index = int(input("Enter the index of the chicken to update: "))
+        new_name = input("Enter the new name: ")
+        chickens[index] = new_name
+        print("Chicken record updated.")
+    except (IndexError, ValueError):
+        print("Invalid index!")
+
+# Delete a chicken
+def delete_chicken():
+    list_chickens()
+    try:
+        index = int(input("Enter the index of the chicken to delete: "))
+        removed = chickens.pop(index)
+        print(f"{removed} has been removed.")
+    except (IndexError, ValueError):
+        print("Invalid index!")
+
+# Main loop
+def main():
+    while True:
+        print_menu()
+        choice = input("Enter your choice: ")
+
+        if choice == "0":
+            print("Exiting Chicken-UI. Goodbye!")
+            break
+        elif choice == "1":
+            list_chickens()
+        elif choice == "2":
+            add_chicken()
+        elif choice == "3":
+            update_chicken()
+        elif choice == "4":
+            delete_chicken()
+        else:
+            print("Invalid choice, please try again.")
+
+        input("\nPress Enter to continue...")
+        clear_screen()
+
+if __name__ == "__main__":
+    main()
