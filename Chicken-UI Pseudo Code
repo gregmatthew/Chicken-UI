@@ -1,0 +1,44 @@
+Chicken-UI Pseudo Code
+
+
+Add some Chicken Details 
+ 
+CREATE chickens list 
+PRINT main menu options 
+GET user input for main menu option 
+ 
+IF user input is 0: 
+   	EXIT app 
+ 
+# Main Menu 
+ELSE IF user input is 1: 
+ 
+   	PRINT main menu options 
+   	GET user input for main menu option 
+ 
+    	IF user input is 0: 
+        		RETURN to main menu 
+ 
+   	ELSE IF user input is 1: 
+        		PRINT chickens list 
+ 
+    	ELSE IF user input is 2: 
+ 
+# CREATE new chicken 
+        		GET user input for chicken name 
+        		APPEND product name to products list 
+ 
+    	ELSE IF user input is 3: 
+     
+        	# STRETCH GOAL - UPDATE existing chicken 
+        		PRINT chicken names with its index value 
+        		GET user input for chicken index value 
+        		GET user input for new chicken name 
+        		UPDATE chicken name at index in chickens list 
+ 
+    	ELSE IF user input is 4: 
+ 
+        	# STRETCH GOAL - DELETE chicken 
+        	PRINT chickens list 
+        	GET user input for chicken index value 
+       	 DELETE chicken at index in chickens list 
